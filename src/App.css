@@ -1,0 +1,62 @@
+
+@import "tailwindcss";
+
+:root {
+  --main-font: 'Dancing Script', serif;
+  --secundary-font: 'Roboto', sans-serif;
+}
+
+body{
+  overflow: hidden  ;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;
+  }
+
+/* From Uiverse.io by vamsidevendrakumar */ 
+.card {
+  /* width: 300px;
+  height: 200px; */
+  perspective: 1000px;
+}
+
+.card-inner {
+  /* font-family: "Dancing Script", serif; */
+  /* width: 100%;
+  height: 100%; */
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.999s;
+}
+
+.card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  /* background-color: blueviolet;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border: 10px solid blueviolet;
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px; */
+  transform: rotateY(180deg);
+}
