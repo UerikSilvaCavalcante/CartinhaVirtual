@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Howl, Howler } from "howler";
 import { gsap } from "gsap";
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import TypeIt from "typeit-react";
 import Confetti from "react-confetti-boom";
 gsap.registerPlugin();
@@ -146,7 +146,7 @@ function App() {
       ]);
     }
   };
-  useLayoutEffect(() => {
+  useEffect(() => {
     let content = document.getElementById("quote");
     let text = content.innerText;
     let textArray = text.split(" ");
