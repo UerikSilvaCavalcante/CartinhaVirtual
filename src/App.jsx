@@ -95,7 +95,7 @@ function App() {
         gsap.to("#content", {
           y: -800,
           duration: 1,
-          height: "90vh",
+          height: "80vh",
           ease: "power2.inOut",
         }),
         gsap.to("#panel", {
