@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "./App.css";
+import { Howl, Howler } from "howler";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { SplitText } from "gsap/all";
 import { useLayoutEffect } from "react";
 import TypeIt from "typeit-react";
 import Confetti from "react-confetti-boom";
@@ -12,18 +11,20 @@ function App() {
   const [question, setQuestion] = useState(
     "Para abrir sua cartinha, digite o apelido do seu amor!"
   );
+
   const [instance, setIstance] = useState(null);
   const [boom, setBoom] = useState(false);
   const [confetti, setConfetti] = useState(false);
 
+
   const handleOpen = () => {
     let input = document.getElementById("senha");
     let value = input.value;
-    // console.log(value);
     if (value.toLowerCase() === "benzinho") {
       setBoom(true);
       const larguraTotal = window.innerWidth;
       let tl = gsap.timeline();
+
       tl.add([
         gsap.to(".card-inner", {
           rotateY: 0,
@@ -35,7 +36,7 @@ function App() {
           rotateX: 180,
           y: larguraTotal >= 768 ? -265 : -190,
 
-          duration: 2,
+          duration: 1,
           zIndex: 1,
           ease: "power2.inOut",
         }),
@@ -115,7 +116,6 @@ function App() {
     } else {
       input.value = "";
       input.style.border = "2px solid red";
-      console.log(instance);
 
       instance.reset();
       setQuestion("Ops! Tente novamente! Digite o apelido do seu amor!");
@@ -151,7 +151,7 @@ function App() {
     let text = content.innerText;
     let textArray = text.split(" ");
     let newText = textArray.map((word) => {
-      return `<span>${word}</span>`;
+      return `<span>${word}${word.endsWith(".") ? "<br/>" : ""}</span>`;
     });
     content.innerHTML = newText.join(" ");
   }, []);
@@ -170,30 +170,25 @@ function App() {
             id="panel"
           >
             <div
-              className="flex flex-col justify-start items-start w-[350px] md:w-[500px]  h-[80%] p-4 text-2xl md:text-3xl  rounded-2xl text-justify font-(family-name:--main-font) text-rose-700 bg-rose-200 absolute overflow-hidden origin-bottom "
+              className="flex flex-col justify-start items-start w-[350px] md:w-[500px]  h-[80%] p-4 text-2xl md:text-3xl  rounded-2xl  font-(family-name:--main-font) text-rose-700 bg-rose-200 absolute overflow-hidden origin-bottom "
               id="content"
             >
               <p id="quote">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-                saepe laudantium minus magni rem quidem deserunt sequi molestias
-                blanditiis, Lorem ipsum, dolor sit amet consectetur adipisicing
-                elit. Accusantium natus nobis alias, doloremque magni explicabo
-                error ipsa? Quibusdam, dolores. Optio necessitatibus odio
-                impedit id ullam, perferendis iure excepturi doloremque
-                voluptate! Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Velit sit, in neque facere fugiat ad ea sunt. Adipisci
-                saepe expedita soluta porro, ut et minima eligendi. Optio
-                perspiciatis a ex? Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Labore culpa odio reprehenderit optio
-                recusandae mollitia voluptate minima temporibus ducimus
-                molestias tenetur rerum fugit dolores, natus molestiae, fugiat
-                impedit officia? Dolores? Lorem ipsum dolor sit, amet
-                consectetur adipisicing elit. Tenetur voluptatum ullam
-                architecto quae exercitationem recusandae fuga, laborum tempora
-                consectetur quam fugit perferendis repellendus unde soluta
-                doloremque suscipit error velit assumenda. Lorem ipsum dolor sit
-                amet consectetur adipisicing elit. Saepe perspiciatis cumque,
-                fugiat dolorem deserunt libero ipsa nisi quis rem
+                Oi amorzinho, tudo bem gatinha?!.
+                <br /> Fiz essa surpresinha pra você, espero que esteja dando
+                tudo certo. <br />
+                Fiz isso amorzinho pra te mostrar o quanto eu te amo e quero o
+                seu bem minha princesa.
+                <br /> Sei como esse dia e especial para você e se é importante
+                pra você e duas vezes mais importante para mim.
+                <br />
+                Saiba que torço muito por você e por nós dois, quero fazer de
+                tudo o possível para você conquistar seus sonhos amorzinho.{" "}
+                <br />
+                Porque o meu maior medo amo e ver você desistindo de algo que
+                ama!! <br />
+                Então lembre-se bem, que estou e estarei sempre com você. Te amo
+                muito, com Amor seu Benzinho ❤️
               </p>
             </div>
             <img
